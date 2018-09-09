@@ -1,0 +1,11 @@
+<h1>Todos</h1>
+<h4><%= link_to "Create a todo", new_todo_path %></h4>
+
+<% @todos.each do |todo| %>
+  <h3
+    style="<%= todo.completed ? 'text-decoration: line-through;' : nil %>"
+  >
+    <%= link_to todo.name, todo %>
+  </h3>
+  <%= button_to 'Complete todo', complete_todo_path(todo) unless todo.completed %>
+<% end %>
